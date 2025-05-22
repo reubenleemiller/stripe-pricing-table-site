@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Stripe Session Packages</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
 </head>
 <body>
-
   <div class="info-container">
     <div class="info-box">
       <div class="about-box">
@@ -39,6 +37,7 @@
 
     <div class="info-box">
       <h2><strong>Welcome!</strong> Here's how it works:</h2>
+      <p><strong>Note:</strong> The large blue “Pay Now” buttons are for <em>one-time purchases only</em>. If you'd like to be billed automatically every month, choose the “Subscribe Monthly” option underneath instead.</p>
       <p>
         1. <strong>Select your session package</strong> below (4, 8, or 12 hours)<br>
         2. <strong>Pay securely</strong> through Stripe<br>
@@ -48,22 +47,48 @@
       <p><strong>That’s it!</strong> You’re just a few clicks away from getting started.</p>
 
       <div class="pricing-heading-wrapper"><h1 class="centered-title">Choose Your Tutoring Package</h1></div>
-  <div class="pricing-container">
-        <div class="pricing-card">
-          <div class="title">Session Package (4hrs)</div>
-          <div class="price">CA$160</div>
-          <div class="link_wrapper">
-            <a href="https://pay.rmtutoringservices.com/b/fZubJ10rje8h7KO1Tt9sk00" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
-          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
-          </div>
-        </div>
+      <div class="pricing-container">
+
+<div class="pricing-card">
+  <div class="title">Session Package (4hrs)</div>
+  <div class="price">CA$160</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/fZubJ10rje8h7KO1Tt9sk00" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.stripe.com/p/sub4" class="subscribe-button">Subscribe Monthly</a>
+</div>
+
+<div class="pricing-card recommended">
+  <div class="recommended-label">Recommended</div>
+  <div class="title">Session Package (8hrs)</div>
+  <div class="price">CA$320</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/9B6bJ1a1Tc090im55F9sk01" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.stripe.com/p/sub8" class="subscribe-button">Subscribe Monthly</a>
+</div>
+
+<div class="pricing-card">
+  <div class="title">Session Package (12hrs)</div>
+  <div class="price">CA$480</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/14A4gz4Hz3tDaX069J9sk02" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.stripe.com/p/sub12" class="subscribe-button">Subscribe Monthly</a>
+</div>
+</div>
+</div>
+</div>
         <div class="pricing-card recommended">
           <div class="recommended-label">Recommended</div>
           <div class="title">Session Package (8hrs)</div>
           <div class="price">CA$320</div>
           <div class="link_wrapper">
             <a href="https://pay.rmtutoringservices.com/b/9B6bJ1a1Tc090im55F9sk01" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
-          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
+            <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
           </div>
         </div>
         <div class="pricing-card">
@@ -71,12 +96,11 @@
           <div class="price">CA$480</div>
           <div class="link_wrapper">
             <a href="https://pay.rmtutoringservices.com/b/14A4gz4Hz3tDaX069J9sk02" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
-          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
+            <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
