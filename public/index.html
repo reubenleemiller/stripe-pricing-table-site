@@ -3,30 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stripe Pricing</title>
-  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #f9f9f9;
-    }
-    h1 {
-      text-align: center;
-    }
-    stripe-pricing-table {
-      display: block;
-      margin: 2rem auto;
-      max-width: 900px;
-    }
-  </style>
+  <title>Stripe Session Packages</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+  <div style="max-width: 700px; margin: 2rem auto; font-family: 'Times New Roman', Times, serif; font-size: 1.1rem; text-align: center; line-height: 1.6;">
+    <h2><strong>Welcome!</strong> Here's how it works:
+    </h2>
+    <p>
+      1. <strong>Select your session package</strong> below (4, 8, or 12 hours)<br>
+      2. <strong>Pay securely</strong> through Stripe<br>
+      3. <strong>After payment</strong>, you'll be sent to a confirmation page<br>
+      4. There you'll find <strong>booking links</strong> to schedule your sessions — <em>the same number as you paid for</em>!
+    </p>
+    <p><strong>That’s it!</strong> You’re just a few clicks away from getting started.</p>
+  </div>
+
   <h1>Choose Your Plan</h1>
-  <stripe-pricing-table
-    pricing-table-id="prctbl_1RRKzNFkTAUuP5b84QaqhYew"
-    publishable-key="pk_live_51QyjAMFkTAUuP5b8POjVyVCKi0ry2R54UQz4nZaTyWJYSSYPdXliMTvkS256IoT0iSL323qcR90mZjfbH3PU8Wed00Bs0TS9MZ">
-  </stripe-pricing-table>
+  <div class="pricing-container">
+    <div class="pricing-card">
+      <div class="title">Session Package (4hrs)</div>
+      <div class="price">CA$160</div>
+      <div class="link_wrapper">
+        <a href="https://buy.stripe.com/test_4hourlink" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
+      </div>
+    </div>
+    <div class="pricing-card recommended">
+      <div class="recommended-label">Recommended</div>
+      <div class="title">Session Package (8hrs)</div>
+      <div class="price">CA$320</div>
+      <div class="link_wrapper">
+        <a href="https://buy.stripe.com/test_8hourlink" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
+      </div>
+    </div>
+    <div class="pricing-card">
+      <div class="title">Session Package (12hrs)</div>
+      <div class="price">CA$480</div>
+      <div class="link_wrapper">
+        <a href="https://buy.stripe.com/test_12hourlink" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 96C0 78.3 14.3 64 32 64H544c17.7 0 32 14.3 32 32V128H0V96zM0 160H576V416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V160zM96 272C87.2 272 80 279.2 80 288s7.2 16 16 16H160c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
