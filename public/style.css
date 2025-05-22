@@ -191,12 +191,13 @@ h1 {
 
 
 
+
 @media (max-width: 768px) {
   .info-box {
     width: 100%;
-    margin: 1rem 2rem;
+    max-width: 90%;
+    margin: 1rem auto;
     box-sizing: border-box;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
   }
 }
