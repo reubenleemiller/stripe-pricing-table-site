@@ -1,9 +1,16 @@
+
 body {
   font-family: "Times New Roman", Times, serif;
   background: #f9f9f9;
   margin: 0;
   padding: 0;
   text-align: center;
+  overflow-x: hidden;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -20,7 +27,7 @@ h1 {
 }
 
 .pricing-card {
-  background: white;
+  background: transparent;
   padding: 2rem;
   box-shadow: 0 0 0 1px #e0e0e0, 0 4px 12px rgba(0, 0, 0, 0.05);
   width: 280px;
@@ -88,12 +95,14 @@ h1 {
   background: white;
   border: 3px solid #0a66c2;
   position: absolute;
-  transform: rotate(45deg);
   right: -25%;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   z-index: 0;
   transition: all 0.35s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon svg {
@@ -115,7 +124,42 @@ h1 {
 }
 
 .pay-button:hover + .icon {
-  right: -30%;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: 3px solid #0a66c2;
+  position: absolute;
+  right: -25%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 0;
+  transition: all 0.35s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-button {
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #0a66c2;
+  background: transparent;
+  border: 2px solid #0a66c2;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background: #0a66c2;
+  color: white;
+  transform: scale(1.05);
 }
 
 .info-container {
@@ -129,13 +173,13 @@ h1 {
 }
 
 .info-box {
-  margin: 0.1875rem 1.5rem 0 1.5rem;
   background-color: #ffffff;
   border-radius: 12px;
   padding: 2rem;
   flex: 1 1 450px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   text-align: left;
+  margin: 0.1875rem 1.5rem 0 1.5rem;
 }
 
 .info-box h2, .info-box h3 {
@@ -157,6 +201,16 @@ h1 {
   border: 3px solid #ccc;
 }
 
+.pricing-heading-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.centered-title {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .info-container {
     flex-direction: column;
@@ -168,31 +222,7 @@ h1 {
     align-items: center;
     text-align: center;
   }
-}
 
-
-}
-
-.centered-title {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.pricing-heading-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.centered-title {
-  text-align: center;
-}
-
-
-
-
-@media (max-width: 768px) {
   .info-box {
     width: 100%;
     max-width: 90%;
