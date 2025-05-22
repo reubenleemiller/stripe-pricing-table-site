@@ -189,9 +189,13 @@ h1 {
   text-align: center;
 }
 
+
 @media (max-width: 768px) {
   .info-box {
-    width: calc(100% - 3rem); /* full width minus horizontal margins */
-    margin: 0.375rem 1.5rem;
+    width: 100%;
+    margin: 0.375rem auto;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
