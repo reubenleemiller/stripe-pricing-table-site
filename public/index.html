@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+<!-- Site Preloader -->
+<div id="site-preloader">
+  <div class="spinner"></div>
+</div>
   <div class="info-container">
     <div class="info-box">
       <div class="about-box">
@@ -82,5 +86,26 @@
 </div>
 </div>
 </div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      document.getElementById("site-preloader").classList.add("hidden");
+    }, 1000); // Show for at least 1 seconds
+  });
+
+  document.querySelectorAll("a").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const href = button.getAttribute("href");
+      if (href && href.startsWith("http")) {
+        e.preventDefault();
+        const loader = document.getElementById("site-preloader");
+        loader.classList.remove("hidden");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 1000);
+      }
+    });
+  });
+</script>
 </body>
 </html>
