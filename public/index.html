@@ -20,7 +20,7 @@
     <img src="assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
   </div>
 </div>
-<main>
+<main style="display: none;">
   <div class="info-container">
     <div class="info-box">
       <h2><strong>Welcome!</strong> Here's how it works:</h2>
@@ -108,6 +108,8 @@
     preloader.classList.add('hidden');
 
     setTimeout(() => {
+      const main = document.querySelector('main');
+      if (main) main.style.display = 'block'; // Ensure main only appears now
       document.body.classList.remove('locked');
       document.body.classList.add('unlocked');
       document.documentElement.classList.remove('preloader-lock');
@@ -117,7 +119,7 @@
     }, FADE_DURATION);
   }
 
-  // Trigger preloader only if not clicked already
+  // Preloader trigger on browser page show
   window.addEventListener('pageshow', (e) => {
     if (!clickedNavigation) {
       showPreloader(e.persisted);
@@ -125,7 +127,7 @@
     }
   });
 
-  // Click handler for normal links
+  // Intercept link clicks
   document.addEventListener('click', (e) => {
     const el = e.target.closest('a, button');
     if (!el) return;
@@ -148,16 +150,15 @@
       href !== window.location.href
     ) {
       clickedNavigation = true;
-      // don't call showPreloader() here — let `pageshow` handle it
     }
   });
 
-  // Fallback: hide preloader after max 5s
+  // Safety timeout fallback (after 5 seconds)
   setTimeout(() => {
     if (preloaderActive) hidePreloader();
   }, 5000);
 
-  // Fallback: hide preloader on window load (guaranteed fallback)
+  // Fallback for instant load
   window.addEventListener('load', () => {
     if (!preloader.classList.contains('hidden')) {
       hidePreloader();
