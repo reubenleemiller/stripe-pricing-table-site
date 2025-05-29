@@ -1,0 +1,4 @@
+[build]
+  # Serve site from the 'public' folder
+  publish = "public"
+  command = ""

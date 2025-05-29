@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Stripe Session Packages</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<!-- Site Preloader -->
+<div id="site-preloader" class="">
+  <div class="preloader-spinner-wrapper">
+    <div class="custom-spinner">
+      <div></div>
+    </div>
+    <img src="assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
+  </div>
+</div>
+  <div class="info-container">
+    <div class="info-box">
+      <div class="about-box">
+        <img src="assets/20191223_163857.jpg" alt="Reuben Miller" class="profile-pic">
+        <div>
+          <h2>About Me</h2>
+          <p>Hi! I'm a passionate and experienced math tutor specializing in everything from <strong>pre-calculus</strong> to <strong>multivariable calculus</strong>. I’ve worked with high school, college, and university students to build confidence, master tough concepts, and excel in exams.</p>
+          <p>I take a clear, step-by-step approach that focuses on deep understanding, not just memorizing formulas. Whether you're stuck on limits and derivatives or diving into Fourier series and eigenvalue problems, I’m here to help you succeed.</p>
+        </div>
+      </div>
+      <h3>What I Tutor</h3>
+      <ul>
+        <li>Pre-Calculus & Functions</li>
+        <li>Calculus I, II, III (Single & Multivariable)</li>
+        <li>Vector Calculus & Parametric Curves</li>
+        <li>Ordinary Differential Equations</li>
+        <li>Partial Differential Equations</li>
+      </ul>
+      <h3>What to Expect</h3>
+      <ul>
+        <li>Clear explanations tailored to your learning style</li>
+        <li>Digital whiteboard + screen sharing</li>
+        <li>Friendly, patient, and focused guidance</li>
+        <li>Option to book 1-hour, 1.5-hour, 2-hour sessions or short 15-min intros</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h2><strong>Welcome!</strong> Here's how it works:</h2>
+      <p>
+        1. <strong>Select your session package</strong> below (4, 8, or 12 hours)<br>
+        2. <strong>Pay securely</strong> through Stripe<br>
+        3. <strong>After payment</strong>, you'll be sent to a confirmation page<br>
+        4. There you'll find <strong>booking links</strong> to schedule your sessions — <em>the same number as you paid for</em>!
+      </p>
+      <p><strong>That’s it!</strong> You’re just a few clicks away from getting started.</p>
+
+      <div class="pricing-heading-wrapper"><h1 class="centered-title">Choose Your Tutoring Package</h1></div>
+      <div style="text-align: center;"><p><strong>Note:</strong> The large blue “Pay Now” buttons are for <em>one-time purchases only</em>. If you'd like to be billed automatically every month, choose the “Subscribe Monthly” option underneath instead.</p></div>
+      <div class="pricing-container">
+
+<div class="pricing-card">
+  <div class="title">Session Package (4hrs)</div>
+  <div class="price">CA$160</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/fZubJ10rje8h7KO1Tt9sk00" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.rmtutoringservices.com/b/14AcN5fmd2pzaX0gOn9sk03" class="subscribe-button">Subscribe Monthly</a>
+</div>
+
+<div class="pricing-card recommended">
+  <div class="recommended-label">Recommended</div>
+  <div class="title">Session Package (8hrs)</div>
+  <div class="price">CA$320</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/9B6bJ1a1Tc090im55F9sk01" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.rmtutoringservices.com/b/3cI5kD6PH5BLaX0gOn9sk04" class="subscribe-button">Subscribe Monthly</a>
+</div>
+
+<div class="pricing-card">
+  <div class="title">Session Package (12hrs)</div>
+  <div class="price">CA$480</div>
+  <div class="link_wrapper">
+    <a href="https://pay.rmtutoringservices.com/b/14A4gz4Hz3tDaX069J9sk02" class="pay-button"><i class="fas fa-credit-card"></i> Pay Now</a>
+    <div class="icon"><i class="fas fa-credit-card" style="transform: rotate(-45deg); font-size: 1.25rem; color: #0a66c2;"></i></div>
+  </div>
+  <a href="https://pay.rmtutoringservices.com/b/bJeaEX6PH7JT2queGf9sk05" class="subscribe-button">Subscribe Monthly</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  document.documentElement.classList.add('preloader-lock');
+
+  const preloader = document.getElementById('site-preloader');
+  const FADE_DURATION = 250;
+  const MIN_DISPLAY = 500;
+  let preloaderActive = false;
+  let preloaderTriggered = false;
+  let clickedNavigation = false;
+
+  function showPreloader(noAnimation = false) {
+    if (!preloader || preloaderActive || preloaderTriggered) return;
+
+    preloaderTriggered = true;
+    preloaderActive = true;
+
+    document.body.classList.add('locked');
+    document.body.classList.remove('unlocked');
+    preloader.classList.remove('hidden', 'visible');
+
+    if (noAnimation) {
+      preloader.classList.add('visible');
+    } else {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          preloader.classList.add('visible');
+        });
+      });
+    }
+  }
+
+  function hidePreloader() {
+    if (!preloader) return;
+
+    preloader.classList.remove('visible');
+    preloader.classList.add('hidden');
+
+    setTimeout(() => {
+      document.body.classList.remove('locked');
+      document.body.classList.add('unlocked');
+      document.documentElement.classList.remove('preloader-lock');
+      preloaderActive = false;
+      preloaderTriggered = false;
+      clickedNavigation = false;
+    }, FADE_DURATION);
+  }
+
+  // Trigger preloader only if not clicked already
+  window.addEventListener('pageshow', (e) => {
+    if (!clickedNavigation) {
+      showPreloader(e.persisted);
+      setTimeout(hidePreloader, MIN_DISPLAY);
+    }
+  });
+
+  // Click handler for normal links
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+
+    if (
+      el.hasAttribute('data-ignore-preloader') ||
+      el.getAttribute('aria-expanded') !== null ||
+      el.getAttribute('aria-haspopup') === 'true' ||
+      el.classList.contains('dropdown-toggle') ||
+      (el.classList.contains('nav-link') && el.getAttribute('role') === 'button')
+    ) return;
+
+    const isAnchor = el.tagName === 'A';
+    const href = el.getAttribute('href');
+
+    if (
+      isAnchor &&
+      href &&
+      !href.startsWith('#') &&
+      href !== window.location.href
+    ) {
+      clickedNavigation = true;
+      // don't call showPreloader() here — let `pageshow` handle it
+    }
+  });
+  setTimeout(() => {
+    if (preloaderActive) hidePreloader();
+  }, 5000);
+</script>
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("open");
+  }
+  </script>
+</body>
+</html>
