@@ -4,6 +4,11 @@
 <script>
   document.documentElement.classList.add('preloader-lock');
 </script>
+<style>
+  html.preloader-lock main {
+    display: none !important;
+  }
+</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Stripe Session Packages</title>
@@ -20,7 +25,7 @@
     <img src="assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
   </div>
 </div>
-<main style="display: none;">
+<main>
   <div class="info-container">
     <div class="info-box">
       <h2><strong>Welcome!</strong> Here's how it works:</h2>
