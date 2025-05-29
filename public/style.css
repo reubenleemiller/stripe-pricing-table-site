@@ -1,4 +1,6 @@
-
+main {
+  display: none;
+}
 body {
   font-family: "Times New Roman", Times, serif;
   background: #f9f9f9;

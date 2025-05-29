@@ -151,9 +151,18 @@
       // don't call showPreloader() here — let `pageshow` handle it
     }
   });
+
+  // Fallback: hide preloader after max 5s
   setTimeout(() => {
     if (preloaderActive) hidePreloader();
   }, 5000);
+
+  // Fallback: hide preloader on window load (guaranteed fallback)
+  window.addEventListener('load', () => {
+    if (!preloader.classList.contains('hidden')) {
+      hidePreloader();
+    }
+  });
 </script>
 </body>
 </html>
