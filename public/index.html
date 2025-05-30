@@ -76,98 +76,80 @@
 </div>
 </main>
 <script>
-  document.documentElement.classList.add('preloader-lock');
-
   const preloader = document.getElementById('site-preloader');
   const FADE_DURATION = 500;
   const MIN_DISPLAY = 750;
-  let preloaderActive = false;
-  let preloaderTriggered = false;
-  let clickedNavigation = false;
 
-  function showPreloader(noAnimation = false) {
-    if (!preloader || preloaderActive || preloaderTriggered) return;
+  let preloaderShown = false;
+  let preloaderStart = Date.now();
 
-    preloaderTriggered = true;
-    preloaderActive = true;
+  function showPreloader(force = false) {
+    if (preloaderShown && !force) return;
+    preloaderShown = true;
 
     document.body.classList.add('locked');
-    document.body.classList.remove('unlocked');
-    preloader.classList.remove('hidden', 'visible');
-
-    if (noAnimation) {
-      preloader.classList.add('visible');
-    } else {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          preloader.classList.add('visible');
-        });
-      });
-    }
+    preloader.classList.add('visible');
+    preloader.classList.remove('hidden');
+    document.documentElement.classList.add('preloader-lock');
+    preloaderStart = Date.now();
   }
 
-  function hidePreloader() {
-    if (!preloader) return;
-
-    preloader.classList.remove('visible');
-    preloader.classList.add('hidden');
+  function hidePreloader(callback) {
+    const elapsed = Date.now() - preloaderStart;
+    const remaining = Math.max(MIN_DISPLAY - elapsed, 0);
 
     setTimeout(() => {
-      const main = document.querySelector('main');
-      if (main) main.style.display = 'block'; // Ensure main only appears now
-      document.body.classList.remove('locked');
-      document.body.classList.add('unlocked');
-      document.documentElement.classList.remove('preloader-lock');
-      preloaderActive = false;
-      preloaderTriggered = false;
-      clickedNavigation = false;
-    }, FADE_DURATION);
+      preloader.classList.remove('visible');
+      preloader.classList.add('hidden');
+
+      setTimeout(() => {
+        document.body.classList.remove('locked');
+        document.body.classList.add('unlocked');
+        document.documentElement.classList.remove('preloader-lock');
+        const main = document.querySelector('main');
+        if (main) main.style.display = 'block';
+        if (typeof callback === 'function') callback();
+      }, FADE_DURATION);
+    }, remaining);
   }
 
-  // Preloader trigger on browser page show
+  // Standard DOM load preloader
+  document.addEventListener('DOMContentLoaded', () => {
+    showPreloader(true);
+  });
+
   window.addEventListener('pageshow', (e) => {
-    if (!clickedNavigation) {
-      showPreloader(e.persisted);
-      setTimeout(hidePreloader, MIN_DISPLAY);
-    }
+    if (e.persisted) showPreloader(true);
+    hidePreloader();
   });
 
-  // Intercept link clicks
-  document.addEventListener('click', (e) => {
-    const el = e.target.closest('a, button');
-    if (!el) return;
-
-    if (
-      el.hasAttribute('data-ignore-preloader') ||
-      el.getAttribute('aria-expanded') !== null ||
-      el.getAttribute('aria-haspopup') === 'true' ||
-      el.classList.contains('dropdown-toggle') ||
-      (el.classList.contains('nav-link') && el.getAttribute('role') === 'button')
-    ) return;
-
-    const isAnchor = el.tagName === 'A';
-    const href = el.getAttribute('href');
-
-    if (
-      isAnchor &&
-      href &&
-      !href.startsWith('#') &&
-      href !== window.location.href
-    ) {
-      clickedNavigation = true;
-    }
+  window.addEventListener('load', () => {
+    hidePreloader();
   });
 
-  // Safety timeout fallback (after 5 seconds)
   setTimeout(() => {
-    if (preloaderActive) hidePreloader();
+    if (!preloader.classList.contains('hidden')) hidePreloader();
   }, 5000);
 
-  // Fallback for instant load
-  window.addEventListener('load', () => {
-    if (!preloader.classList.contains('hidden')) {
-      hidePreloader();
-    }
+  // Intercept and delay link navigation
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a[href]:not([target="_blank"])');
+    if (!el) return;
+
+    const href = el.getAttribute('href');
+    if (!href || href.startsWith('#') || href === window.location.href) return;
+
+    // Prevent default nav
+    e.preventDefault();
+    showPreloader(true);
+
+    hidePreloader(() => {
+      window.location.href = href;
+    });
+  });
+
+  window.addEventListener('beforeunload', () => {
+    preloaderShown = false;
   });
 </script>
 </body>
